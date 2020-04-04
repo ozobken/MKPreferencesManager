@@ -1,6 +1,5 @@
 //
 //  MKPreferencesManager.h
-//  Ping Monitor
 //
 //  Created by Michael Kuck on 9/24/13.
 //  Copyright (c) 2013 Michael Kuck. All rights reserved.
@@ -19,11 +18,6 @@ extern NSString *const MKPreferencesManagerChangedKeys;
 * only be used as a backup.
 */
 @interface MKPreferencesManager : NSObject
-
-@property (strong, nonatomic, readonly) NSUserDefaults            *localStore;
-@property (strong, nonatomic, readonly) NSUbiquitousKeyValueStore *iCloudStore;
-
-@property (nonatomic) BOOL iCloudSyncEnabled;
 
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)localStore
              ubiquitousKeyValueStore:(NSUbiquitousKeyValueStore *)iCloudStore;
@@ -45,7 +39,6 @@ extern NSString *const MKPreferencesManagerChangedKeys;
 - (void)removeObjectForKey:(NSString *)key;
 
 - (void)resetPreferences;
-- (void)resetICloudStore;
 
 - (void)synchronize;
 
